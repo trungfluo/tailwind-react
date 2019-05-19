@@ -5,8 +5,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
+const isDev = process.env.NODE_ENV === 'development';
 let entry = './src/index.js';
-if (process.env.NODE_ENV === 'development') {
+if (isDev) {
   entry = ['react-hot-loader/patch', './src/index'];
 }
 
@@ -39,7 +40,7 @@ module.exports = {
   plugins: [
     new WebpackBar(),
     new ExtractTextPlugin('styles.css', {
-      disable: process.env.NODE_ENV === 'development',
+      disable: isDev,
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
