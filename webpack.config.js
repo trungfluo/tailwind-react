@@ -5,8 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
+let entry = './src/index.js';
+if (process.env.NODE_ENV === 'development') {
+  entry = ['react-hot-loader/patch', './src/index'];
+}
+
 module.exports = {
-  entry: './src/index.js',
+  entry,
   mode: process.env.NODE_ENV,
   module: {
     rules: [
@@ -47,5 +52,6 @@ module.exports = {
       chunks: false,
       modules: false,
     },
+    hot: true,
   },
 };
