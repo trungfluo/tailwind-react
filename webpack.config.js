@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
 module.exports = {
-  entry: './src/styles.css',
+  entry: './src/index.js',
   mode: process.env.NODE_ENV,
   module: {
     rules: [
@@ -17,6 +17,15 @@ module.exports = {
             'postcss-loader',
           ],
         }),
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          babelrc: false,
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
     ],
   },
