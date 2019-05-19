@@ -7,6 +7,7 @@
     "prod": "cross-env NODE_ENV=production webpack --no-progress"
   },
   "devDependencies": {
+    "autoprefixer": "^9.5.1",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
@@ -14,7 +15,7 @@
     "postcss": "^7.0.14",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.1",
-    "tailwindcss": "^0.7.4",
+    "tailwindcss": "^1.0.1",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1",
