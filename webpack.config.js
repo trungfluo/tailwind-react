@@ -14,6 +14,7 @@ if (isDev) {
 module.exports = {
   entry,
   mode: process.env.NODE_ENV,
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -25,6 +26,21 @@ module.exports = {
             'postcss-loader',
           ],
         }),
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
       },
       {
         test: /\.js$/,
